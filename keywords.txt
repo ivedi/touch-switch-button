@@ -1,0 +1,29 @@
+#####################################
+# Syntax Coloring Map for Touch Switch Button
+#####################################
+# Class
+#####################################
+
+TouchSwitchButton KEYWORD1
+
+#####################################
+# Methods and Functions
+#####################################
+
+updateState KEYWORD2
+
+#####################################
+# Attributes
+#####################################
+
+buttonPin KEYWORD1
+state     KEYWORD1
+
+#####################################
+# Constants
+#####################################
+
+
+TOUCH_STATE_RELEASED      LITERAL1
+TOUCH_STATE_PRESSED       LITERAL1
+TOUCH_STATE_DEEP_PRESSED  LITERAL1

@@ -8,9 +8,9 @@
 
 #include "Arduino.h"
 
-#define TOUCH_STATE_RELEASED 0
-#define TOUCH_STATE_PRESSED 1
-#define TOUCH_STATE_DEEP_PRESSED 2
+#define TOUCH_STATE_RELEASED 1
+#define TOUCH_STATE_PRESSED 2
+#define TOUCH_STATE_DEEP_PRESSED 4
 
 class TouchSwitchButton
 {
