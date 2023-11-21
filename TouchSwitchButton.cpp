@@ -29,7 +29,7 @@ TouchSwitchButton::TouchSwitchButton(
 
 bool TouchSwitchButton::updateState() {
   uint16_t touchValue = touchRead(buttonPin);
-  if (state != TOUCH_STATE_RELEASED && touchValue >= _releaseAreMin && touchValue < _releaseAreaMax) {
+  if (state != TOUCH_STATE_RELEASED && touchValue >= _releaseAreaMin && touchValue < _releaseAreaMax) {
     state = TOUCH_STATE_RELEASED;
     return true;
   }
