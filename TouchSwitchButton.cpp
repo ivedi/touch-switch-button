@@ -33,11 +33,11 @@ bool TouchSwitchButton::updateState() {
     state = TOUCH_STATE_RELEASED;
     return true;
   }
-  if (state != TOUCH_STATE_PRESSED && touchValue >= _pressAreaMin && touchValue < _pressAreaMax) {
+  if (state == TOUCH_STATE_RELEASED && touchValue >= _pressAreaMin && touchValue < _pressAreaMax) {
     state = TOUCH_STATE_PRESSED;
     return true;
   }
-  if (state != TOUCH_STATE_DEEP_PRESSED && touchValue >= _deepPressAreaMin && touchValue < _deepPressAreaMax) {
+  if (state == TOUCH_STATE_PRESSED && touchValue >= _deepPressAreaMin && touchValue < _deepPressAreaMax) {
     state = TOUCH_STATE_DEEP_PRESSED;
     return true;
   }
