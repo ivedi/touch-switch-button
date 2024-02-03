@@ -17,22 +17,15 @@ class TouchSwitchButton
   public:
     TouchSwitchButton(
       uint8_t pin,
-      uint8_t releaseAreaMax,
-      uint8_t releaseAreaMin,
-      uint8_t pressAreaMax,
-      uint8_t pressAreaMin,
-      uint8_t deepPressAreaMax,
-      uint8_t deepPressAreaMin);
+      uint8_t releaseMin,
+      uint8_t pressMin);
     uint8_t buttonPin;
     uint8_t state;
+    uint16_t touchValue;
     bool updateState();
   private:
-    uint8_t _releaseAreaMax;
-    uint8_t _releaseAreaMin;
-    uint8_t _pressAreaMax;
-    uint8_t _pressAreaMin;
-    uint8_t _deepPressAreaMax;
-    uint8_t _deepPressAreaMin;
+    uint8_t _releaseMin;
+    uint8_t _pressMin;
 };
 
 #endif

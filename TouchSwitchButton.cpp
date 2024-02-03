@@ -9,35 +9,27 @@
 
 TouchSwitchButton::TouchSwitchButton(
     uint8_t pin,
-    uint8_t releaseAreaMax,
-    uint8_t releaseAreaMin,
-    uint8_t pressAreaMax,
-    uint8_t pressAreaMin,
-    uint8_t deepPressAreaMax,
-    uint8_t deepPressAreaMin) {
+    uint8_t releaseMin,
+    uint8_t pressMin) {
   buttonPin = pin;
 
-  _releaseAreaMax = releaseAreaMax;
-  _releaseAreaMin = releaseAreaMin;
-  _pressAreaMax = pressAreaMax;
-  _pressAreaMin = pressAreaMin;
-  _deepPressAreaMax = deepPressAreaMax;
-  _deepPressAreaMin = deepPressAreaMin;
+  _releaseMin = releaseMin;
+  _pressMin = pressMin;
 
   state = TOUCH_STATE_RELEASED;
 }
 
 bool TouchSwitchButton::updateState() {
-  uint16_t touchValue = touchRead(buttonPin);
-  if (state != TOUCH_STATE_RELEASED && touchValue >= _releaseAreaMin && touchValue < _releaseAreaMax) {
+  touchValue = touchRead(buttonPin);
+  if (state != TOUCH_STATE_RELEASED && touchValue >= _releaseMin) {
     state = TOUCH_STATE_RELEASED;
     return true;
   }
-  if (state == TOUCH_STATE_RELEASED && touchValue >= _pressAreaMin && touchValue < _pressAreaMax) {
+  if (state == TOUCH_STATE_RELEASED && touchValue >= _pressMin) {
     state = TOUCH_STATE_PRESSED;
     return true;
   }
-  if (state != TOUCH_STATE_DEEP_PRESSED && touchValue >= _deepPressAreaMin && touchValue < _deepPressAreaMax) {
+  if (state != TOUCH_STATE_DEEP_PRESSED && touchValue < _pressMin) {
     state = TOUCH_STATE_DEEP_PRESSED;
     return true;
   }
